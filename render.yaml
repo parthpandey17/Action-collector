@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: action-collector
+    env: node
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    plan: free
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false
