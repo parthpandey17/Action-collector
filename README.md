@@ -29,21 +29,52 @@ A full-stack application that uses AI to summarize meeting transcripts and share
 ## Project Structure
 
 ```
-meeting-notes-summarizer/
-├── client/                 # React frontend
+Action-Collector/
+├── client/                     # React frontend
 │   ├── src/
-│   │   ├── App.jsx        # Main application component
-│   │   ├── main.jsx       # React entry point
-│   │   └── index.css      # Global styles
-│   ├── index.html         # HTML template
-│   ├── vite.config.js     # Vite configuration
-│   └── package.json       # Frontend dependencies
-├── server/                 # Node.js backend
-│   ├── index.js           # Express server
-│   ├── .env.example       # Environment variables template
-│   └── package.json       # Backend dependencies
-├── package.json           # Root package.json for scripts
-└── README.md              # This file
+│   │   ├── components/         # Reusable UI components
+│   │   │   ├── TranscriptUpload.jsx
+│   │   │   ├── SummaryDisplay.jsx
+│   │   │   └── EmailSection.jsx
+│   │   ├── hooks/              # Custom React hooks
+│   │   │   ├── useTranscript.js
+│   │   │   └── useEmail.js
+│   │   ├── services/           # API service functions
+│   │   │   └── api.js
+│   │   ├── utils/              # Utility functions
+│   │   │   └── validation.js
+│   │   ├── App.jsx             # Main app component
+│   │   ├── index.css           # Global styles
+│   │   └── main.jsx            # App entry point
+│   ├── index.html
+│   ├── vite.config.js
+│   └── package.json
+│
+├── server/                     # Node.js backend
+│   ├── config/                 # Configuration files
+│   │   ├── ai.js              # Groq AI configuration
+│   │   ├── email.js           # Gmail SMTP configuration
+│   │   └── database.js        # Database config (future)
+│   ├── controllers/            # Business logic
+│   │   ├── summaryController.js
+│   │   └── emailController.js
+│   ├── routes/                 # API routes
+│   │   ├── summaryRoutes.js
+│   │   └── emailRoutes.js
+│   ├── middleware/             # Custom middleware
+│   │   └── upload.js          # File upload handling
+│   ├── utils/                  # Utility functions
+│   │   └── fileParser.js      # PDF/TXT file parsing
+│   ├── uploads/               # Uploaded files storage
+│   ├── app.js                 # Main server file
+│   ├── index.js               # Legacy entry point
+│   ├── .env                   # Environment variables
+│   ├── .env.example           # Environment template
+│   └── package.json
+│
+├── .gitignore
+├── package.json               # Root package.json
+└── README.md
 ```
 
 ## Setup Instructions
